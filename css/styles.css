@@ -28,11 +28,31 @@
   font-size: 3em;
 }
 
-.viewport {
+.viewport, .panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.panel {
+  width: 300px;
+  height: 300px;
+
+  background-color: #F7ECDE;
+
+  border: 2px solid #E9DAC1;
+  border-radius: 30px;
+}
+
+.panel .title {
+  font-size: 2em;
+  margin: 0.5em 0;
+}
+
+.panel .ticker {
+  font-size: 1em;
+  margin: 0 0 2em 0;
 }
 
 .button {

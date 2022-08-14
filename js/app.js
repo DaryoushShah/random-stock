@@ -1,3 +1,5 @@
+import companies from '../json/companies.json' assert {type: 'json'};
+
 /* createNavbar() */
 const createNavbar = () => {
   const navbar = document.createElement('div');
@@ -29,10 +31,58 @@ const createFooter = () => {
   return footer;
 }
 
+/* getRandomStock() */
+const getRandomStock = (list) => {
+  const len = Object.keys(list).length;
+
+  const randomNumber = Math.floor(Math.random() * len);
+
+  return list[randomNumber];
+}
+
 /* renderRandomStockPanel() */
 const renderRandomStockPanel = () => {
   /* Remove find new stock button */
   document.querySelector('#find-new-stock-button').remove();
+
+  const panel = document.createElement('div');
+  panel.classList.add('panel');
+
+  /* Get random stock */
+  const company = getRandomStock(companies);
+
+  const companyName = Object.values(company)[2];
+  const companyTicker = Object.values(company)[1];
+
+  /* Add stock information */
+  const title = document.createElement('p');
+  title.classList.add('title');
+  title.textContent = companyName;
+
+  const ticker = document.createElement('p');
+  ticker.classList.add('ticker');
+  ticker.textContent = `$${companyTicker}`;
+
+  panel.appendChild(title);
+  panel.appendChild(ticker);
+
+  /* Add Yahoo Finance button */
+  const yahooLink = document.createElement('a');
+  yahooLink.setAttribute('href', `https://finance.yahoo.com/quote/${companyTicker}`);
+  yahooLink.setAttribute('target', '_blank');
+  
+  const yahooButton = document.createElement('button');
+  yahooButton.classList.add('button');
+  yahooButton.textContent = 'Check Me Out On Yahoo!'
+
+  yahooLink.appendChild(yahooButton);
+
+  panel.appendChild(yahooLink);
+
+  const viewport = document.querySelector('.viewport');
+  
+  viewport.append(panel);
+  viewport.append(backButton);
 }
 
 /* createFindNewStockButton() */
