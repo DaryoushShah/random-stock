@@ -40,6 +40,13 @@ const getRandomStock = (list) => {
   return list[randomNumber];
 }
 
+const renderHomePage = () => {
+  document.querySelector('.panel').remove();
+  document.querySelector('#back-button').remove();
+
+  document.querySelector('.viewport').append(createFindNewStockButton());
+}
+
 /* renderRandomStockPanel() */
 const renderRandomStockPanel = () => {
   /* Remove find new stock button */
@@ -78,6 +85,13 @@ const renderRandomStockPanel = () => {
   yahooLink.appendChild(yahooButton);
 
   panel.appendChild(yahooLink);
+
+  /* Create back button */
+  const backButton = document.createElement('button');
+  backButton.classList.add('button');
+  backButton.setAttribute('id', 'back-button');
+  backButton.textContent = 'Back';
+  backButton.onclick = renderHomePage;
 
   const viewport = document.querySelector('.viewport');
   
