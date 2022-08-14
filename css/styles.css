@@ -27,3 +27,21 @@
 .navbar .title {
   font-size: 3em;
 }
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: #9ED2C6;
+  padding: 1.5rem;
+
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color: #54BAB9;
+}

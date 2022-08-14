@@ -25,7 +25,36 @@ const createFooter = () => {
     + 'taken as a result of using this program.';
 
   footer.appendChild(disclaimer);
+
   return footer;
+}
+
+/* renderRandomStockPanel() */
+const renderRandomStockPanel = () => {
+  /* Remove find new stock button */
+  document.querySelector('#find-new-stock-button').remove();
+}
+
+/* createFindNewStockButton() */
+const createFindNewStockButton = () => {
+  /* Add button */
+  const button = document.createElement('button');
+  button.classList.add('button');
+  button.setAttribute('id', 'find-new-stock-button');
+  button.textContent = 'Find New Stock!';
+  button.onclick = renderRandomStockPanel;
+
+  return button;
+}
+
+/* Create viewport */
+const createViewport = () => {
+  const viewport = document.createElement('div');
+  viewport.classList.add('viewport');
+
+  viewport.appendChild(createFindNewStockButton());
+  
+  return viewport;
 }
 
 /* Append container to body  */
@@ -36,6 +65,9 @@ document.body.appendChild(container);
 
 /* Append navbar to container */
 container.appendChild(createNavbar());
+
+/* Append viewport to container */
+container.appendChild(createViewport());
 
 /* Append footer to container */
 container.appendChild(createFooter());
