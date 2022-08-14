@@ -9,7 +9,7 @@
   height: 100vh;
 }
 
-.navbar {
+.navbar, .footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,10 @@
   background-color: #54BAB9;
 }
 
-.navbar .title {
+.navbar .title, .footer .text {
   color: #FFFFFF;
+}
+
+.navbar .title {
   font-size: 3em;
 }
