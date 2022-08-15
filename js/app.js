@@ -1,4 +1,4 @@
-import companies from '../json/companies.json' assert {type: 'json'};
+import {companies} from '../js/companies.js';
 
 /* createNavbar() */
 const createNavbar = () => {
